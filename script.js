@@ -1,96 +1,24 @@
-function showTimetable() {
-    const termType = document.getElementById('term-type').value;
-    const studentType = document.getElementById('student-type').value;
-
-    // Clear existing timetable rows
-    const table = document.getElementById('schedule-table');
-    while (table.rows.length > 1) {
-        table.deleteRow(1);
-    }
-
-    // Example data for shuttle times (You can edit these in the code)
-    const shuttleTimes = {
-        trimester: {
-            undergraduate: [
-                { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "7:30 AM to 10:00 AM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "10:45 AM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "11:25 AM to Fixed" }, 
-                { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "12:05 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "12:45 PM to 02:05 PM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "02:45 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "03:25 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "04:05 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "04:40 PM to 05:15 PM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "05:45 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "06:15 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "07:00 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "09:40 PM to Fixed" },
-                { from: "Notunbazar", to: "UIU", days: "Sat-Wed", times: "9:00 AM to 11:00 AM" }
-            ],
-            masters: [
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "02:00 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "06:00 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "09:40 PM to Fixed" }
-            ]
-        },
-        semester: {
-            undergraduate: [
-              { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "7:30 AM to 10:00 AM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "10:45 AM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "11:25 AM to Fixed" }, 
-                { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "12:05 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "12:45 PM to 02:05 PM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "02:45 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "03:25 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "04:05 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "04:40 PM to 05:15 PM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "05:45 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "06:15 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "07:00 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "09:40 PM to Fixed" },
-                { from: "Notunbazar", to: "UIU", days: "Mon-Fri", times: "9:00 AM to 11:00 AM" }
-            ],
-            masters: [
-               { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "02:00 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "06:00 PM to Fixed" },
-                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "09:40 PM to Fixed" }
-            ]
-        }
-    };
-
-    // Get the appropriate data based on term and student type
-    const selectedSchedule = shuttleTimes[termType][studentType];
-
-    // Populate the table with the selected schedule
-    selectedSchedule.forEach(schedule => {
-        const row = table.insertRow();
-        row.insertCell(0).innerText = schedule.from;
-        row.insertCell(1).innerText = schedule.to;
-        row.insertCell(2).innerText = schedule.days;
-        row.insertCell(3).innerText = schedule.times;
-    });
-}
-
+// Initialize the OpenStreetMap (OSM) map using Leaflet.js
 function initMap() {
-    // Initialize map centered on UIU location (example coordinates)
-    const uiuLocation = { lat: 23.7808875, lng: 90.4226361 };  // UIU coordinates
+    var map = L.map('map').setView([23.7808875, 90.2792371], 13); // UIU coordinates (Dhaka)
 
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: uiuLocation
-    });
+    // Add OSM tile layer to the map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-    // Add a marker for the shuttle location (you can dynamically update this with real-time data)
-    const shuttleMarker = new google.maps.Marker({
-        position: uiuLocation,
-        map: map,
-        title: "UIU Shuttle"
-    });
+    // Add a marker to represent the shuttle's location
+    var shuttleMarker = L.marker([23.7808875, 90.2792371]).addTo(map);
+    shuttleMarker.bindPopup("<b>UIU Shuttle</b><br>Real-time shuttle location").openPopup();
 
-    // In a real-world scenario, you would update the shuttleMarker position dynamically
+    // Simulate real-time location update (You can replace this with real GPS data)
+    setInterval(function() {
+        var newLat = 23.7810; // Updated latitude
+        var newLon = 90.2795; // Updated longitude
+        shuttleMarker.setLatLng([newLat, newLon]); // Update marker location
+    }, 5000); // Update every 5 seconds
 }
 
-// Initialize the map
+// Call map initialization
 initMap();
