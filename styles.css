@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
-    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fpremium-vector%2Fbus-beautiful-pattern-background-vector-illustration_75607121.htm&psig=AOvVaw3x0fuH76n1cbRCyDpsSadS&ust=1728986458115000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMCG3NPOjYkDFQAAAAAdAAAAABAx'); /* Ensure this image is present */
+    background-image: url(''); /* Ensure this image is present */
     
     /* Add these CSS properties for better control over the background */
     background-repeat: repeat;       /* Makes the shuttle image repeat across the background */
