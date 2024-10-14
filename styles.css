@@ -1,80 +1,104 @@
-/* Body styles */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
-    background-image: url('https://i.pinimg.com/564x/2c/77/e3/2c77e3e0b91dd5f4c07bb8dcf09b223e.jpg'); /* Ensure shuttle-pattern.png is in the right folder */
+    background-image: url('shuttle-pattern.png'); /* Add a shuttle pattern background image */
     background-size: contain;
-    background-repeat: repeat; /* Repeats the shuttle pattern */
-    background-position: center;
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
 }
 
-/* Title and developer info */
+/* Header */
+header {
+    background-color: #ff6600;
+    background: linear-gradient(90deg, #ff6600, #ff9900);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
 h1 {
-    text-align: center;
-    color: orange; /* Primary theme color */
-    font-size: 3em;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-h2 {
-    text-align: center;
+p {
+    font-size: 18px;
     color: black;
-    font-size: 1.2em;
+}
+
+/* Input Section */
+#input-section {
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ff6600;
+    border-radius: 8px;
     margin-bottom: 20px;
 }
 
-/* Container for the shuttle table */
-.container {
-    width: 80%;
-    margin: 0 auto;
-    background: linear-gradient(45deg, orange, #ffba5c); /* Orange gradient background for the container */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+label, select {
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Table styles */
+button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff9900;
+}
+
+/* Main content */
+main {
+    padding: 20px;
+}
+
+/* Shuttle Timetable */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: white; /* Table background is white */
-    color: black; /* Text color */
-    margin-bottom: 20px;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
 }
 
 th, td {
-    padding: 12px 20px; /* Add padding for table cells */
-    text-align: left;
-    border-bottom: 1px solid #ddd; /* Light border between rows */
-    font-size: 1.1em; /* Adjust font size */
-}
-
-/* Header row in the table */
-th {
-    background-color: orange; /* Orange header */
-    color: white;
-    font-weight: bold;
-}
-
-/* Hover effect for rows */
-tr:hover {
-    background-color: #f5f5f5; /* Light gray for hover */
-}
-
-/* Footer styles */
-footer {
+    padding: 12px;
     text-align: center;
+}
+
+th {
+    background-color: #ff6600;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Footer */
+footer {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Real-time location map */
+#map {
+    height: 400px;
+    border: 2px solid #ff6600;
     margin-top: 20px;
-    font-size: 1em;
-    color: black;
-}
-
-a {
-    color: orange; /* Link color */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
