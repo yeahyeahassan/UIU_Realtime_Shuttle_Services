@@ -79,9 +79,9 @@ function updateMapImage() {
 
     // Define image sources for each location
     const locationImages = {
-        notunbazar: 'notunbazar-map.jpg',  // Replace with actual image paths
-        uiu: 'uiu-map.jpg',
-        kuril: 'kuril-map.jpg'
+        notunbazar: 'notunbazar.png',  // Replace with actual image paths
+        uiu: 'uiu.png',
+        kuril: 'kuril.png'
     };
 
     if (location && locationImages[location]) {
