@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UIU Shuttle Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script> <!-- Replace YOUR_API_KEY with your actual API key -->
 </head>
 <body>
     <header>
@@ -13,57 +14,43 @@
     </header>
 
     <main>
-        <section id="shuttle-location">
-            <h2>Real-time Shuttle Location</h2>
-            <div id="map">
-                <!-- Real-time location map will appear here -->
-            </div>
+        <!-- Input form for choosing options -->
+        <section id="input-section">
+            <h2>Select Program and Term</h2>
+            <label for="term-type">Trimester/Semester:</label>
+            <select id="term-type">
+                <option value="trimester">Trimester</option>
+                <option value="semester">Semester</option>
+            </select>
+
+            <label for="student-type">Student Type:</label>
+            <select id="student-type">
+                <option value="undergraduate">Undergraduate</option>
+                <option value="masters">Masters</option>
+            </select>
+
+            <button onclick="showTimetable()">Show Timetable</button>
         </section>
 
-        <!-- Shuttle Timetable Input Form -->
-        <section id="input-schedule">
-            <h2>Edit Shuttle Timetable</h2>
-            <form id="shuttleForm">
-                <label for="from">From:</label>
-                <input type="text" id="from" name="from" required>
-
-                <label for="to">To:</label>
-                <input type="text" id="to" name="to" required>
-
-                <label for="day">Day:</label>
-                <input type="text" id="day" name="day" required>
-
-                <label for="time">Time:</label>
-                <input type="text" id="time" name="time" required>
-
-                <label for="category">Student Category:</label>
-                <select id="category" name="category">
-                    <option value="Trimester">Trimester</option>
-                    <option value="Semester">Semester</option>
-                    <option value="Masters">Masters</option>
-                </select>
-
-                <button type="submit">Add Shuttle Time</button>
-            </form>
-        </section>
-
-        <!-- Shuttle Timetable Display -->
+        <!-- Timetable display -->
         <section id="timetable">
             <h2>Shuttle Timetable</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-                <tbody id="shuttleTableBody">
-                    <!-- Schedule rows will be dynamically added here -->
-                </tbody>
+            <table id="schedule-table">
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Days</th>
+                    <th>Times</th>
+                </tr>
             </table>
+        </section>
+
+        <!-- Shuttle real-time location section -->
+        <section id="shuttle-location">
+            <h2>Real-time Shuttle Location</h2>
+            <div id="map" style="height: 400px;">
+                <!-- Map will appear here -->
+            </div>
         </section>
     </main>
 
