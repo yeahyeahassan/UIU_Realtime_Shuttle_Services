@@ -29,7 +29,10 @@ function showTimetable() {
                 // Additional times here...
             ],
             masters: [
-                { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
+               { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "02:00 PM to Fixed" },
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "06:00 PM to Fixed" },
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "09:40 PM to Fixed" }
                 // Additional times here...
             ]
         },
@@ -52,7 +55,10 @@ function showTimetable() {
                 // Additional times here...
             ],
             masters: [
-                { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
+                 { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "02:00 PM to Fixed" },
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "06:00 PM to Fixed" },
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "09:40 PM to Fixed" }
                 // Additional times here...
             ]
         }
