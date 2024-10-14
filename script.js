@@ -1,42 +1,68 @@
-// Array to store shuttle times
-let shuttleTimes = [];
+function showTimetable() {
+    const termType = document.getElementById('term-type').value;
+    const studentType = document.getElementById('student-type').value;
 
-// Function to add shuttle time to the table
-function addShuttleTime(from, to, day, time, category) {
-    // Create a new row
-    const tableBody = document.getElementById('shuttleTableBody');
-    const newRow = document.createElement('tr');
+    // Clear existing timetable rows
+    const table = document.getElementById('schedule-table');
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
 
-    // Add cells to the row
-    newRow.innerHTML = `
-        <td>${from}</td>
-        <td>${to}</td>
-        <td>${day}</td>
-        <td>${time}</td>
-        <td>${category}</td>
-    `;
+    // Example data for shuttle times (You can edit these in the code)
+    const shuttleTimes = {
+        trimester: {
+            undergraduate: [
+                { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "8:00 AM, 10:00 AM" },
+                { from: "Notunbazar", to: "UIU", days: "Mon-Fri", times: "9:00 AM, 11:00 AM" }
+            ],
+            masters: [
+                { from: "UIU", to: "Notunbazar", days: "Sat-Sun", times: "12:00 PM, 2:00 PM" },
+                { from: "Notunbazar", to: "UIU", days: "Sat-Sun", times: "1:00 PM, 3:00 PM" }
+            ]
+        },
+        semester: {
+            undergraduate: [
+                { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "7:30 AM, 9:30 AM" },
+                { from: "Notunbazar", to: "UIU", days: "Mon-Fri", times: "8:30 AM, 10:30 AM" }
+            ],
+            masters: [
+                { from: "UIU", to: "Notunbazar", days: "Sat-Sun", times: "1:00 PM, 3:00 PM" },
+                { from: "Notunbazar", to: "UIU", days: "Sat-Sun", times: "2:00 PM, 4:00 PM" }
+            ]
+        }
+    };
 
-    // Append the row to the table
-    tableBody.appendChild(newRow);
+    // Get the appropriate data based on term and student type
+    const selectedSchedule = shuttleTimes[termType][studentType];
 
-    // Save the shuttle times in the array
-    shuttleTimes.push({ from, to, day, time, category });
+    // Populate the table with the selected schedule
+    selectedSchedule.forEach(schedule => {
+        const row = table.insertRow();
+        row.insertCell(0).innerText = schedule.from;
+        row.insertCell(1).innerText = schedule.to;
+        row.insertCell(2).innerText = schedule.days;
+        row.insertCell(3).innerText = schedule.times;
+    });
 }
 
-// Form submission event
-document.getElementById('shuttleForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+function initMap() {
+    // Initialize map centered on UIU location (example coordinates)
+    const uiuLocation = { lat: 23.7808875, lng: 90.4226361 };  // UIU coordinates
 
-    // Get input values
-    const from = document.getElementById('from').value;
-    const to = document.getElementById('to').value;
-    const day = document.getElementById('day').value;
-    const time = document.getElementById('time').value;
-    const category = document.getElementById('category').value;
+    const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: uiuLocation
+    });
 
-    // Add shuttle time to the table
-    addShuttleTime(from, to, day, time, category);
+    // Add a marker for the shuttle location (you can dynamically update this with real-time data)
+    const shuttleMarker = new google.maps.Marker({
+        position: uiuLocation,
+        map: map,
+        title: "UIU Shuttle"
+    });
 
-    // Clear form fields
-    document.getElementById('shuttleForm').reset();
-});
+    // In a real-world scenario, you would update the shuttleMarker position dynamically
+}
+
+// Initialize the map
+initMap();
