@@ -34,8 +34,20 @@ function showTimetable() {
         },
         semester: {
             undergraduate: [
-                { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "7:30 AM, 9:30 AM" },
-                { from: "Notunbazar", to: "UIU", days: "Mon-Fri", times: "8:30 AM, 10:30 AM" }
+               { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "7:30 AM, 10:00 AM (continuous)" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "10:45 AM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "11:25 AM, Fixed" }, 
+                { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "12:05 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "12:45 PM, 02:05 PM (continuous)" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "02:45 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "03:25 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "04:05 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "04:40 PM, 05:15 PM (continuous)" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "05:45 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "06:15 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "07:00 PM, Fixed" },
+                 { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "09:40 PM, Fixed" },
+                { from: "Notunbazar", to: "UIU", days: "Mon-Fri", times: "9:00 AM, 11:00 AM" }
             ],
             masters: [
                 { from: "UIU", to: "Notunbazar", days: "Sat-Sun", times: "1:00 PM, 3:00 PM" },
