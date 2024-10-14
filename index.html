@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UIU Shuttle Tracker</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script> <!-- Replace YOUR_API_KEY with your actual API key -->
+    
+    <!-- Include Leaflet.js for OSM -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
     <header>
@@ -14,43 +17,38 @@
     </header>
 
     <main>
-        <!-- Input form for choosing options -->
-        <section id="input-section">
-            <h2>Select Program and Term</h2>
-            <label for="term-type">Trimester/Semester:</label>
-            <select id="term-type">
-                <option value="trimester">Trimester</option>
-                <option value="semester">Semester</option>
-            </select>
-
-            <label for="student-type">Student Type:</label>
-            <select id="student-type">
-                <option value="undergraduate">Undergraduate</option>
-                <option value="masters">Masters</option>
-            </select>
-
-            <button onclick="showTimetable()">Show Timetable</button>
-        </section>
-
-        <!-- Timetable display -->
-        <section id="timetable">
-            <h2>Shuttle Timetable</h2>
-            <table id="schedule-table">
-                <tr>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Days</th>
-                    <th>Times</th>
-                </tr>
-            </table>
-        </section>
-
-        <!-- Shuttle real-time location section -->
+        <!-- Shuttle Real-time Location Section -->
         <section id="shuttle-location">
             <h2>Real-time Shuttle Location</h2>
-            <div id="map" style="height: 400px;">
-                <!-- Map will appear here -->
-            </div>
+            <div id="map" style="height: 400px;"></div>
+        </section>
+
+        <!-- Shuttle Timetable Form -->
+        <section id="timetable">
+            <h2>Edit Shuttle Timetable</h2>
+            <form id="timetable-form">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" required><br>
+
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" required><br>
+
+                <label for="days">Days:</label>
+                <input type="text" id="days" name="days" required><br>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required><br>
+
+                <label for="students">Student Type:</label>
+                <select id="students" name="students">
+                    <option value="trimester">Trimester</option>
+                    <option value="masters">Masters</option>
+                </select><br>
+
+                <button type="button" id="save-timetable">Save</button>
+            </form>
+            <h3>Current Timetable:</h3>
+            <ul id="timetable-list"></ul>
         </section>
     </main>
 
