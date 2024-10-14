@@ -9,9 +9,15 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
-    background-image: url('https://www.shutterstock.com/shutterstock/photos/1135036829/display_1500/stock-vector-cartoon-hand-drawn-back-to-school-seamless-pattern-lots-of-symbols-objects-and-elements-perfect-1135036829.jpg'); /* Add a shuttle pattern background image */
-    background-size: contain;
+    background-image: url('shuttle-pattern.png'); /* Ensure this image is present */
+    
+    /* Add these CSS properties for better control over the background */
+    background-repeat: repeat;       /* Makes the shuttle image repeat across the background */
+    background-size: cover;          /* Ensures the image covers the whole screen */
+    background-position: center;     /* Centers the background image */
+    background-attachment: fixed;    /* Keeps the background fixed during scrolling */
 }
+
 
 /* Header */
 header {
