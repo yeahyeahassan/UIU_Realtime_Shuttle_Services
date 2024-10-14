@@ -9,14 +9,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
-    background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-vector-seamless-pattern-with-school-bus-picture-image_1164687.jpg'); /* Ensure this image is present */
-    
-    /* Add these CSS properties for better control over the background */
-    background-repeat: repeat;       /* Makes the shuttle image repeat across the background */
-    background-size: cover;          /* Ensures the image covers the whole screen */
-    background-position: center;     /* Centers the background image */
-    background-attachment: fixed;    /* Keeps the background fixed during scrolling */
+    background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-vector-seamless-pattern-with-school-bus-picture-image_1164687.jpg'); /* This is where the background image is set */
+    background-size: contain;
 }
+
 
 
 /* Header */
