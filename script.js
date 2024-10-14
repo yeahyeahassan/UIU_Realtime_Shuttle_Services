@@ -1,24 +1,93 @@
-// Initialize the OpenStreetMap (OSM) map using Leaflet.js
-function initMap() {
-    var map = L.map('map').setView([23.7808875, 90.2792371], 13); // UIU coordinates (Dhaka)
+function showTimetable() {
+    const termType = document.getElementById('term-type').value;
+    const studentType = document.getElementById('student-type').value;
 
-    // Add OSM tile layer to the map
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    // Clear existing timetable rows
+    const table = document.getElementById('schedule-table');
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
 
-    // Add a marker to represent the shuttle's location
-    var shuttleMarker = L.marker([23.7808875, 90.2792371]).addTo(map);
-    shuttleMarker.bindPopup("<b>UIU Shuttle</b><br>Real-time shuttle location").openPopup();
+    // Example data for shuttle times (You can edit these in the code)
+    const shuttleTimes = {
+        trimester: {
+            undergraduate: [
+                { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "7:30 AM to 10:00 AM (continuous)" },
+                { from: "UIU", to: "Notunbazar", days: "Sat-Wed", times: "10:45 AM to Fixed" },
+                // Additional times here...
+            ],
+            masters: [
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
+                // Additional times here...
+            ]
+        },
+        semester: {
+            undergraduate: [
+                { from: "UIU", to: "Notunbazar", days: "Mon-Fri", times: "7:30 AM to 10:00 AM (continuous)" },
+                // Additional times here...
+            ],
+            masters: [
+                { from: "UIU", to: "Notunbazar", days: "Friday", times: "7:30 AM to 09:00 AM (continuous)" },
+                // Additional times here...
+            ]
+        }
+    };
 
-    // Simulate real-time location update (You can replace this with real GPS data)
-    setInterval(function() {
-        var newLat = 23.7810; // Updated latitude
-        var newLon = 90.2795; // Updated longitude
-        shuttleMarker.setLatLng([newLat, newLon]); // Update marker location
-    }, 5000); // Update every 5 seconds
+    // Get the appropriate data based on term and student type
+    const selectedSchedule = shuttleTimes[termType][studentType];
+
+    // Populate the table with the selected schedule
+    selectedSchedule.forEach(route => {
+        const row = table.insertRow();
+        row.insertCell(0).innerText = route.from;
+        row.insertCell(1).innerText = route.to;
+        row.insertCell(2).innerText = route.days;
+        row.insertCell(3).innerText = route.times;
+    });
 }
 
-// Call map initialization
-initMap();
+// Initialize the map for live tracking
+const map = L.map('map').setView([23.7808875, 90.4229488], 13);  // Centered on Dhaka, adjust lat/lng as needed
+
+// Add OSM tile layer to the map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Initialize a marker for the shuttle (starting position)
+let shuttleMarker = L.marker([23.7808875, 90.4229488]).addTo(map).bindPopup('UIU Shuttle is here.');
+
+// Simulate shuttle movement (you'll replace this with real data in a production system)
+function updateShuttlePosition(lat, lng) {
+    shuttleMarker.setLatLng([lat, lng])
+        .bindPopup(`UIU Shuttle is here: (${lat.toFixed(5)}, ${lng.toFixed(5)})`).openPopup();
+}
+
+// Simulate shuttle moving every 3 seconds (this is for demo purposes, replace with actual data in production)
+let currentLat = 23.7808875;
+let currentLng = 90.4229488;
+setInterval(() => {
+    currentLat += (Math.random() - 0.5) * 0.001;  // Random small movement for simulation
+    currentLng += (Math.random() - 0.5) * 0.001;
+    updateShuttlePosition(currentLat, currentLng);
+}, 3000);
+
+// Update map image when location is selected
+function updateMapImage() {
+    const location = document.getElementById('location').value;
+    const mapImage = document.getElementById('map-image');
+
+    // Define image sources for each location
+    const locationImages = {
+        notunbazar: 'notunbazar-map.jpg',  // Replace with actual image paths
+        uiu: 'uiu-map.jpg',
+        kuril: 'kuril-map.jpg'
+    };
+
+    if (location && locationImages[location]) {
+        mapImage.src = locationImages[location];
+        mapImage.style.display = 'block';
+    } else {
+        mapImage.style.display = 'none';
+    }
+}
