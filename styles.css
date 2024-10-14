@@ -7,13 +7,16 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #333;
+    background-image: url('shuttle-pattern.png'); /* Add a shuttle pattern background image */
+    background-size: contain;
 }
 
 /* Header */
 header {
     background-color: #ff6600;
+    background: linear-gradient(90deg, #ff6600, #ff9900);
     color: white;
     padding: 20px;
     text-align: center;
@@ -26,57 +29,45 @@ h1 {
 
 p {
     font-size: 18px;
+    color: black;
 }
 
-/* Main content */
-main {
+/* Input Section */
+#input-section {
     padding: 20px;
-    background: linear-gradient(45deg, orange, #ff6600);
-}
-
-/* Shuttle Timetable Input Form */
-form {
-    background-color: white;
-    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ff6600;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-label {
-    font-size: 16px;
-    color: black;
+label, select {
     display: block;
-    margin-bottom: 5px;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
 button {
     background-color: #ff6600;
     color: white;
-    font-weight: bold;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: orange;
+    background-color: #ff9900;
 }
 
-/* Shuttle Timetable Display */
+/* Main content */
+main {
+    padding: 20px;
+}
+
+/* Shuttle Timetable */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-image: url('shuttle-pattern.png'); /* Add shuttle picture pattern */
-    background-repeat: repeat;
-    background-size: 150px;
+    margin: 20px 0;
 }
 
 table, th, td {
@@ -89,8 +80,12 @@ th, td {
 }
 
 th {
-    background-color: black;
+    background-color: #ff6600;
     color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
 /* Footer */
@@ -99,4 +94,11 @@ footer {
     color: white;
     padding: 10px;
     text-align: center;
+}
+
+/* Real-time location map */
+#map {
+    height: 400px;
+    border: 2px solid #ff6600;
+    margin-top: 20px;
 }
