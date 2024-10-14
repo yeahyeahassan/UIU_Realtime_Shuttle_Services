@@ -1,5 +1,5 @@
 
-# 🚍 **# UIU Shuttle Real Time Location & Time** 🚍
+# 🚍 **# UIU Shuttle Real Location & Time** 🚍
 
 ## 📍 **Project Overview**
 The **UIU Shuttle Tracker** is an innovative web application designed to provide real-time tracking of the university shuttles. This project aims to enhance the commuting experience for students and staff by offering live shuttle locations and a detailed timetable. 
