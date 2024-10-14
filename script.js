@@ -4,8 +4,8 @@ function showTimetable() {
 
     // Clear existing timetable rows
     const table = document.getElementById('schedule-table');
-    while (table.rows.length > 1) {
-        table.deleteRow(1);
+    while (table.rows.length > 2) {
+        table.deleteRow(2);
     }
 
     // Example data for shuttle times (You can edit these in the code)
