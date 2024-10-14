@@ -20,19 +20,49 @@
             </div>
         </section>
 
+        <!-- Shuttle Timetable Input Form -->
+        <section id="input-schedule">
+            <h2>Edit Shuttle Timetable</h2>
+            <form id="shuttleForm">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" required>
+
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" required>
+
+                <label for="day">Day:</label>
+                <input type="text" id="day" name="day" required>
+
+                <label for="time">Time:</label>
+                <input type="text" id="time" name="time" required>
+
+                <label for="category">Student Category:</label>
+                <select id="category" name="category">
+                    <option value="Trimester">Trimester</option>
+                    <option value="Semester">Semester</option>
+                    <option value="Masters">Masters</option>
+                </select>
+
+                <button type="submit">Add Shuttle Time</button>
+            </form>
+        </section>
+
+        <!-- Shuttle Timetable Display -->
         <section id="timetable">
             <h2>Shuttle Timetable</h2>
             <table>
-                <tr>
-                    <th>Shuttle</th>
-                    <th>Departure Time</th>
-                    <th>Arrival Time</th>
-                </tr>
-                <tr>
-                    <td>Shuttle 1</td>
-                    <td>8:00 AM</td>
-                    <td>9:00 AM</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody id="shuttleTableBody">
+                    <!-- Schedule rows will be dynamically added here -->
+                </tbody>
             </table>
         </section>
     </main>
