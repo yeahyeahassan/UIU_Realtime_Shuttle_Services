@@ -77,17 +77,18 @@ function updateMapImage() {
     const location = document.getElementById('location').value;
     const mapImage = document.getElementById('map-image');
 
-    // Define image sources for each location
+    // Define image sources for each location (using .png format)
     const locationImages = {
-        notunbazar: 'notunbazar.png',  // Replace with actual image paths
-        uiu: 'uiu.png',
-        kuril: 'kuril.png'
+        notunbazar: 'images/notunbazar-map.png',  // Replace with actual image paths
+        uiu: 'images/uiu-map.png',
+        kuril: 'images/kuril-map.png'
     };
 
+    // Check if the location is valid and the image exists
     if (location && locationImages[location]) {
-        mapImage.src = locationImages[location];
-        mapImage.style.display = 'block';
+        mapImage.src = locationImages[location];  // Set the new image source
+        mapImage.style.display = 'block';  // Show the image
     } else {
-        mapImage.style.display = 'none';
+        mapImage.style.display = 'none';  // Hide the image if no location is selected
     }
 }
