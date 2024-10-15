@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Orange gradient */
+    background-color: #e95017; /* Solid orange background */
     margin: 0;
     padding: 20px;
     color: #333; /* Dark text for readability */
@@ -43,7 +43,7 @@ select, button {
 }
 
 button {
-    background-color: #ff7e5f; /* Orange button background */
+    background-color: #e95017; /* Updated button background */
     color: #fff; /* White text on button */
     cursor: pointer;
     transition: background-color 0.3s;
