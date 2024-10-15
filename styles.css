@@ -12,6 +12,7 @@ header {
     background-color: #000; /* Black background for header */
     color: #fff; /* White text for header */
     border-radius: 5px;
+    animation: slideIn 0.5s ease; /* Header animation */
 }
 
 h1 {
@@ -24,6 +25,7 @@ main {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease; /* Main content animation */
 }
 
 section {
@@ -40,17 +42,24 @@ select, button {
     margin-bottom: 20px;
     border: 1px solid #000; /* Black border */
     border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add hover effects */
+}
+
+select:hover, button:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 button {
     background-color: #e95017; /* Updated button background */
     color: #fff; /* White text on button */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s; /* Add button hover transition */
 }
 
 button:hover {
     background-color: #feb47b; /* Lighter orange on hover */
+    transform: translateY(-3px); /* Move up on hover */
 }
 
 table {
@@ -61,6 +70,7 @@ table {
 
 table, th, td {
     border: 1px solid #ccc;
+    transition: background-color 0.3s; /* Add table hover transition */
 }
 
 th, td {
@@ -73,12 +83,17 @@ th {
     color: #fff; /* White text for table headers */
 }
 
+tbody tr:hover {
+    background-color: #f1f1f1; /* Light grey on row hover */
+}
+
 footer {
     text-align: center;
     margin-top: 20px;
     color: #fff; /* White text for footer */
     background-color: #000; /* Black background for footer */
     padding: 10px 0;
+    animation: fadeIn 0.5s ease; /* Footer animation */
 }
 
 #map {
@@ -87,4 +102,37 @@ footer {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: zoomIn 0.5s ease; /* Map animation */
+}
+
+/* Keyframe animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
