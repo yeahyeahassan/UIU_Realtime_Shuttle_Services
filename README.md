@@ -51,13 +51,15 @@ The **UIU Shuttle Tracker** is an innovative web application designed to provide
 3. **Testing**: Conduct thorough testing to ensure all features work as intended.
 
 ---
+## 📣 **Conclusion**
+The **UIU Shuttle Tracker** is poised to revolutionize how students and staff interact with shuttle services at UIU. By leveraging modern technology and an engaging design, this project aims to provide convenience and efficiency in campus commuting. 
+
+Let’s bring this project to life and make campus commuting a breeze! 🎊🚀
+
+---
 ![Thank You](https://img.shields.io/badge/Thank%20You!-blue?style=flat-square&logo=smile)
 
 <!-- Graphical GIF Animation -->
 <div class="gif-container" style="text-align: center; margin-bottom: 20px;">
   <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzdob2I4cHdsdWhnbmtmYTBxbnk4cnl2YjZ1bGw5ZGZvMXBwdWc4bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/00n6TSoGffGTLXSMPO/giphy.gif" alt="Working on it GIF" />
 </div>
-## 📣 **Conclusion**
-The **UIU Shuttle Tracker** is poised to revolutionize how students and staff interact with shuttle services at UIU. By leveraging modern technology and an engaging design, this project aims to provide convenience and efficiency in campus commuting. 
-
-Let’s bring this project to life and make campus commuting a breeze! 🎊🚀
